@@ -10,7 +10,7 @@ spec:
   selector:
     app: wordpress
     tier: frontend
-  type: LoadBalancer
+  clusterIP: None
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -58,6 +58,17 @@ spec:
         app: wordpress
         tier: frontend
     spec:
+      dnsPolicy: "None"
+      dnsConfig:
+        nameservers:
+          - 10.233.0.3
+          - 8.8.8.8
+        searches:
+          - default.svc.cluster.local
+          - svc.cluster.local
+          - cluster.local
+          - cbr1.vault
+      restartPolicy: Always
       volumes:
         - name: wp-pv-storage
           persistentVolumeClaim:

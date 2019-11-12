@@ -42,6 +42,7 @@ spec:
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
+  #namespace: default
   name: wordpress-mysql
   labels:
     app: wordpress
@@ -58,6 +59,16 @@ spec:
         app: wordpress
         tier: mysql
     spec:
+      dnsPolicy: "None"
+      dnsConfig:
+        nameservers:
+          - 10.233.0.3
+          - 8.8.8.8
+        searches:
+          - default.svc.cluster.local
+          - svc.cluster.local
+          - cluster.local
+          - cbr1.vault
       volumes: 
         - name: mysql-pv-storage
           persistentVolumeClaim:
