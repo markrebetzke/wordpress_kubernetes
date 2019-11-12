@@ -25,7 +25,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/kube_fs/backend"
+    path: "/kube_fs/backend"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
