@@ -68,16 +68,16 @@ spec:
         app: wordpress
         tier: mysql
     spec:
-      dnsPolicy: "None"
-      dnsConfig:
-        nameservers:
-          - 10.233.0.3
-          - 8.8.8.8
-        searches:
-          - default.svc.cluster.local
-          - svc.cluster.local
-          - cluster.local
-          - cbr1.vault
+      #dnsPolicy: "None"
+      #dnsConfig:
+      #  nameservers:
+      #    - 10.233.0.3
+      #    - 8.8.8.8
+      #  searches:
+      #    - default.svc.cluster.local
+      #    - svc.cluster.local
+      #    - cluster.local
+      #    - cbr1.vault
       volumes: 
         - name: mysql-pv-storage
           persistentVolumeClaim:
