@@ -2,13 +2,13 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: wordpress
+  name: wordpress-app
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: wordpress-mysql
-  namespace: wordpress
+  namespace: wordpress-app
   labels:
     app: wordpress
 spec:
@@ -22,7 +22,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  namespace: wordpress
+  namespace: wordpress-app
   name: mysql-pv-volume
   labels:
     type: local
@@ -38,7 +38,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  namespace: wordpress
+  namespace: wordpress-app
   name: mysql-pv-claim
 spec:
   storageClassName: manual
@@ -51,7 +51,7 @@ spec:
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
-  namespace: wordpress
+  namespace: wordpress-app
   name: wordpress-mysql
   labels:
     app: wordpress
