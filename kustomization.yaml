@@ -1,5 +1,6 @@
 secretGenerator:
 - name: mysql-pass
+  name: wordpress-app
   literals:
   - password=password123
 resources:
