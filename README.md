@@ -20,4 +20,5 @@ Deploy a wordpress instance into the newly created kubernets cluster and keep pe
         
         
 //TODO: Redesign or implement persistent storage. Having databases accessed on shared storage doesn't seem like this would be fit for production. Unsure of what to do in this case
+
 //TODO: Add service to access Wordpress frontend outside of a kubectl port-forward
